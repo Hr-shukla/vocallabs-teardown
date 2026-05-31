@@ -18,50 +18,61 @@ export default function App() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".nav", {
-        y: -24,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      });
+      gsap.fromTo(
+        ".nav",
+        { y: -24, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }
+      );
 
-      gsap.from(".hero-anim", {
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        stagger: 0.12,
-        ease: "power3.out",
-        delay: 0.15,
-      });
+      gsap.fromTo(
+        ".hero-anim",
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.9, stagger: 0.12, ease: "power3.out", delay: 0.15 }
+      );
 
       gsap.utils.toArray(".reveal-section").forEach((section) => {
-        gsap.from(section.querySelectorAll(".reveal"), {
-          opacity: 0,
-          y: 48,
-          duration: 0.85,
-          stagger: 0.1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        });
+        const reveals = section.querySelectorAll(".reveal");
+        if (!reveals.length) return;
+
+        gsap.fromTo(
+          reveals,
+          { opacity: 0, y: 48 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+              toggleActions: "play none none none",
+              once: true,
+            },
+          }
+        );
       });
 
       gsap.utils.toArray(".issue-card").forEach((card) => {
-        gsap.from(card, {
-          opacity: 0,
-          y: 60,
-          duration: 0.9,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 88%",
-            toggleActions: "play none none none",
-          },
-        });
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 88%",
+              toggleActions: "play none none none",
+              once: true,
+            },
+          }
+        );
       });
+
+      ScrollTrigger.refresh();
     }, appRef);
 
     return () => ctx.revert();

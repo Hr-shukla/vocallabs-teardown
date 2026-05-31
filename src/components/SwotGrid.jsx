@@ -41,32 +41,42 @@ export default function SwotGrid() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".swot-header > *", {
-        opacity: 0,
-        y: 32,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 82%",
-          toggleActions: "play none none none",
-        },
-      });
+      gsap.fromTo(
+        ".swot-header > *",
+        { opacity: 0, y: 32 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 82%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
 
-      gsap.from(".swot-card", {
-        opacity: 0,
-        y: 56,
-        scale: 0.96,
-        duration: 0.85,
-        stagger: 0.12,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".swot-grid",
-          start: "top 85%",
-          toggleActions: "play none none none",
-        },
-      });
+      gsap.fromTo(
+        ".swot-card",
+        { opacity: 0, y: 56, scale: 0.96 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.85,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".swot-grid",
+            start: "top 85%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
