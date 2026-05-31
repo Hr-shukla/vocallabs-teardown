@@ -11,7 +11,7 @@ export default function Hero() {
         <div className="hero-content">
           <div className="hero-eyebrow hero-anim">
             <span className="hero-eyebrow-dot" />
-            Product Intern Assignment · 31 May 2026
+            Product Intern Assignment
           </div>
           <h1 className="hero-title hero-anim">
             Vocallabs.ai
