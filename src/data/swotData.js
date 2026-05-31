@@ -1,0 +1,6 @@
+export const swotData = {
+  strengths: ["India-first accent and language tuning — genuine moat", "Full-stack: design → call → analytics pipeline", "Hybrid AI ↔ human handoff capability", "Real customers: CarDekho, CredResolve, IDT Express", "VAPT, GDPR, ISO 27001, AICPA SOC, HIPAA compliance badges"],
+  weaknesses: ["No public pricing — every CTA leads to same /contact form", "Homepage targets developers; Solutions targets businesses", "Horizontal feature cards break on scroll (tested)", "Talk to Expert has latency/voice delay (tested live)", "No signup or login anywhere on site", "Blog is 14 pages of SEO filler with no original insight"],
+  opportunities: ["India's 63M+ SMBs massively underserved by voice AI", "Zoho CRM + WhatsApp Business = instant SMB distribution", "Healthcare + D2C verticals with high call volumes", "Self-serve product-led growth motion (currently blocked)", "Regional language expansion: Tamil, Bengali, Marathi"],
+  threats: ["Bland.ai, Retell AI, Vapi: VC-backed, public pricing, self-serve", "ElevenLabs expanding to 70+ languages including Hindi", "Global players at $0.05–$0.07/min vs Vocallabs' unknown pricing", "TRAI regulations on AI-automated outbound calls in India"],
+};
